@@ -1,7 +1,10 @@
-import React from 'react'
+// ** React Imports
 import ReactDOM from 'react-dom/client'
+
+// ** Components Imports
 import App from './App.tsx'
-import './index.css'
+
+// ** Store Imports
 import { Provider } from 'react-redux'
 import { store } from './store/index.ts'
 
