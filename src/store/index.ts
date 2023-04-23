@@ -1,5 +1,5 @@
 // ** Redux Imports
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import {
   persistStore,
   persistReducer,
@@ -9,21 +9,21 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 // ** Middleware Imports
-import { middleware } from "./middleware";
+import { middleware } from './middleware'
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   version: 1,
   storage,
-};
+}
 
-const reducer = combineReducers({});
+const reducer = combineReducers({})
 
-const persistedReducer = persistReducer(persistConfig, reducer);
+const persistedReducer = persistReducer(persistConfig, reducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -33,8 +33,8 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(middleware),
-});
+})
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)
